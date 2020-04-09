@@ -15,13 +15,6 @@ import useHeight from '../hooks/useHeight';
 import PageNavigation from './PageNavigation';
 import ContentContext from '../contexts/Content';
 
-const Wrapper = styled.div`
-  background: ${({ theme }) => theme.sanJuan};
-  flex-basis: 50%;
-  height: 100vh;
-  position: relative;
-`;
-
 const DocumentContainer = styled.div`
   background: white;
   border-radius: 5px;
@@ -33,6 +26,32 @@ const DocumentContainer = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   width: calc((21 / 29.7) * 80vh);
+`;
+
+const DownloadLink = styled.a`
+  align-items: center;
+  background: ${({ theme }) => theme.halfBaked};
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-weight: 500;
+  left: calc((100% - 80vh * (21 / 29.7)) / 2);
+  padding: .5rem .75rem;
+  position: absolute;
+  text-decoration: none;
+  top: 5.5%;
+  transform: translateY(-50%);
+  transition: background 0.15s;
+  &:hover { background: #68b9b3 }
+  &:not(:last-child) { margin-right: .5rem; }
+`;
+
+const Wrapper = styled.div`
+  background: ${({ theme }) => theme.sanJuan};
+  flex-basis: 50%;
+  height: 100vh;
+  position: relative;
 `;
 
 const noTimeout = [
@@ -76,7 +95,7 @@ const PreviewPanel = () => {
       if (timeout) {
         refreshTimeout.current = setTimeout(() => {
           if (!didCancel) { performActions(); }
-        }, 1500);
+        }, 500);
       } else { performActions(); }
     } else { buildAndSetBlob(); }
 
@@ -107,6 +126,10 @@ const PreviewPanel = () => {
 
   return (
     <Wrapper>
+      <DownloadLink download="Attestation.pdf" href={blobURL}>
+        {/*<Icon src={CloudDownloadSVG} />*/}
+        <span>Télécharger le PDF</span>
+      </DownloadLink>
       <DocumentContainer>
         {blobURL && (
           <Document
