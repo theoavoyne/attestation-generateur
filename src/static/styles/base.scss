@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, input {
+  color: #4B4B4B;
+  font-family: 'Montserrat';
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  width: 100vw;
+}
+
+// LOADER
+
+@keyframes loader {
+  40% { height: 100%; }
+  80% { height: 60%; }
+}
+
+#loader {
+  align-items: center;
+  column-gap: .5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 6rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 4rem;
+}
+
+.bar {
+  animation-duration: .6s;
+  animation-iteration-count: infinite;
+  animation-name: loader;
+  background: #7FC4BF;
+  height: 60%;
+}
