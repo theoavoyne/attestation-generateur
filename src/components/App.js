@@ -71,6 +71,7 @@ const MobilePreviewText = styled.span`
 const Wrapper = styled.div`
   display: flex;
   height: 100%;
+  position: relative;
 `;
 
 const noTimeout = [
