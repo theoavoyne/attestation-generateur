@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import SVG from 'react-inlinesvg';
 
 import buildBlob from '../utils/buildBlob';
-import useWidth from '../hooks/useWidth';
 
 import ContentContext from '../contexts/Content';
 import LoaderSVG from '../static/icons/loader.svg';
@@ -87,8 +86,6 @@ const PreviewPanel = ({ close }) => {
 
   const [blobURL, setBlobURL] = useState(null);
 
-  const windowWidth = useWidth();
-
   useEffect(() => {
     let didCancel = false;
 
@@ -122,7 +119,7 @@ const PreviewPanel = ({ close }) => {
             <Page
               loading={null}
               pageNumber={1}
-              width={windowWidth * 0.8}
+              width={window.innerWidth * 0.8}
             />
           </Document>
         )}
