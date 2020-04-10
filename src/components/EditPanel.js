@@ -74,7 +74,7 @@ const Title = styled.h1`
 
 const Wrapper = styled.div`
   flex-basis: 50%;
-  height: 100vh;
+  height: 100%;
   overflow-y: scroll;
   padding: 3rem;
   -webkit-overflow-scrolling: touch;

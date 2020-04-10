@@ -20,6 +20,7 @@ import PreviewPanel from './PreviewPanel'; //
 
 const Wrapper = styled.div`
   display: flex;
+  height: 100%;
 `;
 
 const noTimeout = [

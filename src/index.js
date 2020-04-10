@@ -3,6 +3,8 @@
 import 'normalize.css/normalize.css';
 import './static/styles/base.scss';
 
+import './utils/setAppHeight';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
