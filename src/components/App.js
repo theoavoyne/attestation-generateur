@@ -5,7 +5,8 @@ import React, {
   useState,
 } from 'react';
 
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider, keyframes } from 'styled-components';
+import SVG from 'react-inlinesvg';
 
 import contentReducer from '../reducers/content';
 import defaultContent from '../defaults/content';
@@ -15,8 +16,57 @@ import theme from '../config/theme';
 import useWidth from '../hooks/useWidth';
 
 import ContentContext from '../contexts/Content';
-import EditPanel from './EditPanel'; //
-import PreviewPanel from './PreviewPanel'; //
+import EditPanel from './EditPanel';
+import FileSVG from '../static/icons/file.svg';
+import MobilePreview from './MobilePreview';
+import PreviewPanel from './PreviewPanel';
+
+const fadeOut = keyframes`
+  to { opacity: 0; }
+`;
+
+const reduce = keyframes`
+  to { width: 4rem; }
+`;
+
+const FileIcon = styled(SVG)`
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+`;
+
+const MobilePreviewButton = styled.button`
+  animation-delay: 2s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-name: ${reduce};
+  background: ${theme.sanJuan};
+  border: none;
+  border-radius: 2rem;
+  bottom: 1.5rem;
+  color: white;
+  height: 4rem;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  right: 1.5rem;
+  width: 19rem;
+`;
+
+const MobilePreviewText = styled.span`
+  animation-delay: 2s;
+  animation-duration: .2s;
+  animation-fill-mode: forwards;
+  animation-name: ${fadeOut};
+  opacity: 1;
+  position: absolute;
+  right: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -38,6 +88,7 @@ const App = () => {
     setToday(savedContent || defaultContent()),
   );
 
+  const [showMobilePreview, setShowMobilePreview] = useState(false);
   const [storeTimeout, setStoreTimeout] = useState(null);
 
   const device = useWidth() > 992 ? 'desktop' : 'mobile';
@@ -78,6 +129,15 @@ const App = () => {
         <Wrapper>
           <EditPanel />
           {device === 'desktop' && <PreviewPanel />}
+          {device === 'mobile' && (
+            <MobilePreviewButton onClick={() => setShowMobilePreview(true)}>
+              <MobilePreviewText>Aperçu & Téléchargement</MobilePreviewText>
+              <FileIcon src={FileSVG} />
+            </MobilePreviewButton>
+          )}
+          {showMobilePreview && device === 'mobile' && (
+            <MobilePreview close={() => setShowMobilePreview(false)} />
+          )}
         </Wrapper>
       </ThemeProvider>
     </ContentContext.Provider>
