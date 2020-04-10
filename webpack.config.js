@@ -82,7 +82,7 @@ module.exports = (env) => {
         REACT_ENV: JSON.stringify(environment),
       }),
       new HtmlWebpackPlugin({
-        title: 'Générateur d\'attestation',
+        title: 'Générateur d\'attestation de déplacement dérogatoire',
         template: 'template.html',
         favicon: './src/static/images/favicon.png',
       }),
