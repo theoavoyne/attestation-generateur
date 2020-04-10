@@ -105,9 +105,7 @@ const PreviewPanel = ({ close }) => {
   return (
     <Wrapper>
       <Controls>
-        <DownloadLink download="Attestation.pdf" href={blobURL}>
-          Ouvrir
-        </DownloadLink>
+        <DownloadLink href={blobURL} target="_blank">Ouvrir</DownloadLink>
         <Button onClick={close}>
           <TimesIcon src={TimesSVG} />
         </Button>s
