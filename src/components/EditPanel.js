@@ -131,14 +131,14 @@ const EditPanel = () => {
           field="address"
           label="Adresse"
           onChange={handleChange}
-          placeholder="Paris"
+          placeholder="15, rue de la Paix"
           value={content.address}
         />
         <LabelledInput
           field="city"
           label="Ville"
           onChange={handleChange}
-          placeholder="15, rue de la Paix"
+          placeholder="Paris"
           value={content.city}
         />
         <LabelledInput

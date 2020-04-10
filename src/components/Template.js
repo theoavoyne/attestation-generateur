@@ -10,8 +10,8 @@ import {
   View,
 } from '@react-pdf/renderer';
 
-import ArialRegular from '../static/fonts/Arial-Regular.ttf';
-import ArialBold from '../static/fonts/Arial-Bold.ttf';
+import OpenSansRegular from '../static/fonts/OpenSans-Regular.ttf';
+import OpenSansBold from '../static/fonts/OpenSans-Bold.ttf';
 
 import contentPropTypes from '../prop-types/content';
 import CrossPNG from '../static/images/cross.png';
@@ -19,10 +19,10 @@ import CrossPNG from '../static/images/cross.png';
 const now = moment().tz('Europe/Paris');
 
 Font.register({
-  family: 'Arial',
+  family: 'OpenSans',
   fonts: [
-    { src: ArialRegular },
-    { src: ArialBold, fontWeight: 700 },
+    { src: OpenSansRegular },
+    { src: OpenSansBold, fontWeight: 700 },
   ],
 });
 
@@ -47,8 +47,9 @@ const style = {
     textAlign: 'right',
   },
   page: {
-    fontFamily: 'Arial',
-    fontSize: 12,
+    fontFamily: 'OpenSans',
+    fontSize: 11,
+    lineHeight: 1.2,
     padding: 50,
   },
   paragraph: {
