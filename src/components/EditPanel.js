@@ -53,7 +53,7 @@ const Button = styled.button.attrs(() => ({
   padding: 0;
   width: 2rem;
   @media (max-width: 992px) {
-    border: .25rem solid ${({ theme }) => theme.ziggurat};
+    border: .35rem solid ${({ theme }) => theme.ziggurat};
     height: 1.5rem;
     margin: 0 1.5rem 0 0;
     width: 1.5rem;
