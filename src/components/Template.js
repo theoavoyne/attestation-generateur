@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import React from 'react';
 
@@ -50,7 +51,7 @@ const style = {
     fontFamily: 'OpenSans',
     fontSize: 11,
     lineHeight: 1.2,
-    padding: 50,
+    padding: 40,
   },
   paragraph: {
     marginBottom: 12,
@@ -63,9 +64,12 @@ const style = {
     width: 447,
   },
   qrcode: {
-    backgroundColor: 'black',
-    height: 84,
-    width: 84,
+    height: 114,
+    width: 114,
+  },
+  qrcodeBig: {
+    height: 330,
+    width: 330,
   },
   square: {
     border: 2,
@@ -84,7 +88,7 @@ const style = {
   },
 };
 
-const Template = ({ content }) => (
+const Template = ({ content, qrcodeURL }) => (
   <Document>
     <Page size="A4" style={style.page}>
       <Text style={style.title}>ATTESTATION DE DÉPLACEMENT DÉROGATOIRE</Text>
@@ -192,7 +196,7 @@ const Template = ({ content }) => (
           <Text>Le : {content.date} à {content.time}</Text>
           <Text>(Date et heure de début de sortie)</Text>
         </View>
-        <View style={style.qrcode} />
+        <Image src={qrcodeURL} style={style.qrcode} />
       </View>
       <Text style={style.noteRight}>Date de création :</Text>
       <Text style={[style.noteRight, { marginBottom: 12 }]}>
@@ -217,12 +221,14 @@ const Template = ({ content }) => (
         alimentaires…) et les déplacements liés à la perception de prestations
         sociales et au retrait d&apos;espèces.
       </Text>
+      <Image break src={qrcodeURL} style={style.qrcodeBig} />
     </Page>
   </Document>
 );
 
 Template.propTypes = {
   content: contentPropTypes.isRequired,
+  qrcodeURL: PropTypes.string.isRequired,
 };
 
 export default Template;
