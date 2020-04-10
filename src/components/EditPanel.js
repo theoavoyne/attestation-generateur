@@ -77,6 +77,7 @@ const Wrapper = styled.div`
   height: 100vh;
   overflow-y: scroll;
   padding: 3rem;
+  -webkit-overflow-scrolling: touch;
   @media (max-width: 992px) {
     flex-basis: 100%;
   }
@@ -95,7 +96,7 @@ const EditPanel = () => {
       <Title>Générateur d&apos;attestation de déplacement dérogatoire</Title>
       <Paragraph>
         Les données saisies sont stockées exclusivement sur votre téléphone ou
-        votre ordinateur. Aucune information n&apos;est collectée.
+        votre ordinateur. <strong>Aucune information n&apos;est collectée.</strong>
       </Paragraph>
       <Subtitle>Informations personnelles</Subtitle>
       <Grid>
@@ -153,8 +154,8 @@ const EditPanel = () => {
       <Options>
         <Option>
           <Button
-            isActive={content.motive === 'work'}
-            onClick={() => { handleClick('work'); }}
+            isActive={content.motive === 'travail'}
+            onClick={() => { handleClick('travail'); }}
           />
           <OptionText>
             Déplacements entre le domicile et le lieu d&apos;exercice de
@@ -166,8 +167,8 @@ const EditPanel = () => {
         </Option>
         <Option>
           <Button
-            isActive={content.motive === 'shopping'}
-            onClick={() => { handleClick('shopping'); }}
+            isActive={content.motive === 'courses'}
+            onClick={() => { handleClick('courses'); }}
           />
           <OptionText>
             Déplacements pour effectuer des achats de fournitures nécessaires à
@@ -178,8 +179,8 @@ const EditPanel = () => {
         </Option>
         <Option>
           <Button
-            isActive={content.motive === 'health'}
-            onClick={() => { handleClick('health'); }}
+            isActive={content.motive === 'sante'}
+            onClick={() => { handleClick('sante'); }}
           />
           <OptionText>
             Consultations et soins ne pouvant être assurés à distance et ne
@@ -189,8 +190,8 @@ const EditPanel = () => {
         </Option>
         <Option>
           <Button
-            isActive={content.motive === 'family'}
-            onClick={() => { handleClick('family'); }}
+            isActive={content.motive === 'famille'}
+            onClick={() => { handleClick('famille'); }}
           />
           <OptionText>
             Déplacements pour motif familial impérieux, pour l&apos;assistance
@@ -199,8 +200,8 @@ const EditPanel = () => {
         </Option>
         <Option>
           <Button
-            isActive={content.motive === 'workout'}
-            onClick={() => { handleClick('workout'); }}
+            isActive={content.motive === 'sport'}
+            onClick={() => { handleClick('sport'); }}
           />
           <OptionText>
             Déplacements brefs, dans la limite d&apos;une heure quotidienne et
@@ -214,8 +215,8 @@ const EditPanel = () => {
         </Option>
         <Option>
           <Button
-            isActive={content.motive === 'judicial'}
-            onClick={() => { handleClick('judicial'); }}
+            isActive={content.motive === 'judiciaire'}
+            onClick={() => { handleClick('judiciaire'); }}
           />
           <OptionText>
             Convocation judiciaire ou administrative.
@@ -223,8 +224,8 @@ const EditPanel = () => {
         </Option>
         <Option>
           <Button
-            isActive={content.motive === 'community'}
-            onClick={() => { handleClick('community'); }}
+            isActive={content.motive === 'missions'}
+            onClick={() => { handleClick('missions'); }}
           />
           <OptionText>
             Participation à des missions d&apos;intérêt général sur demande de

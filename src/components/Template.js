@@ -116,7 +116,7 @@ const Template = ({ content, qrcodeURL }) => (
       </Text>
       <View style={style.option}>
         <View style={style.square}>
-          {content.motive === 'work' && <Image src={CrossPNG} />}
+          {content.motive === 'travail' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
           Déplacements entre le domicile et le lieu d&apos;exercice de
@@ -130,7 +130,7 @@ const Template = ({ content, qrcodeURL }) => (
       </View>
       <View style={style.option}>
         <View style={style.square}>
-          {content.motive === 'shopping' && <Image src={CrossPNG} />}
+          {content.motive === 'courses' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
           Déplacements pour effectuer des achats de fournitures nécessaires à
@@ -142,7 +142,7 @@ const Template = ({ content, qrcodeURL }) => (
       </View>
       <View style={style.option}>
         <View style={style.square}>
-          {content.motive === 'health' && <Image src={CrossPNG} />}
+          {content.motive === 'sante' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
           Consultations et soins ne pouvant être assurés à distance et ne
@@ -152,7 +152,7 @@ const Template = ({ content, qrcodeURL }) => (
       </View>
       <View style={style.option}>
         <View style={style.square}>
-          {content.motive === 'family' && <Image src={CrossPNG} />}
+          {content.motive === 'famille' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
           Déplacements pour motif familial impérieux, pour l&apos;assistance
@@ -161,7 +161,7 @@ const Template = ({ content, qrcodeURL }) => (
       </View>
       <View style={style.option}>
         <View style={style.square}>
-          {content.motive === 'workout' && <Image src={CrossPNG} />}
+          {content.motive === 'sport' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
           Déplacements brefs, dans la limite d&apos;une heure quotidienne et
@@ -175,7 +175,7 @@ const Template = ({ content, qrcodeURL }) => (
       </View>
       <View style={style.option}>
         <View style={style.square}>
-          {content.motive === 'judicial' && <Image src={CrossPNG} />}
+          {content.motive === 'judiciaire' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
           Convocation judiciaire ou administrative.
@@ -183,7 +183,7 @@ const Template = ({ content, qrcodeURL }) => (
       </View>
       <View style={[style.option, { marginBottom: 0 }]}>
         <View style={style.square}>
-          {content.motive === 'community' && <Image src={CrossPNG} />}
+          {content.motive === 'missions' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
           Participation à des missions d&apos;intérêt général sur demande de
