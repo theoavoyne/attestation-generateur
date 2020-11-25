@@ -6,6 +6,8 @@ import { editField, editMotive } from '../actions/content';
 import ContentContext from '../contexts/Content';
 import LabelledInput from './LabelledInput';
 
+import PoweredPNG from '../static/images/powered.png';
+
 const Grid = styled.div`
   column-gap: 3rem;
   display: grid;
@@ -15,6 +17,12 @@ const Grid = styled.div`
   @media (max-width: 992px) {
     grid-template-columns: 1fr;
   }
+`;
+
+const Image = styled.img`
+  margin: 2rem auto 0 auto;
+  display: block;
+  height: 3rem;
 `;
 
 const LinkLikeButton = styled.button`
@@ -323,6 +331,7 @@ const EditPanel = () => {
           Mentions légales
         </LinkLikeButton>
       )}
+      <a href="https://blackjelly.co"><Image src={PoweredPNG} /></a>
     </Wrapper>
   );
 };
