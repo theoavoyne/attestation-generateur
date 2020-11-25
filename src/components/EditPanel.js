@@ -164,23 +164,22 @@ const EditPanel = () => {
             onClick={() => { handleClick('travail'); }}
           />
           <OptionText>
-            Déplacements entre le domicile et le lieu d&apos;exercice de
-            l&apos;activité professionnelle, lorsqu&apos;ils sont indispensables
-            à l&apos;exercice d&apos;activités ne pouvant être organisées sous
-            forme de télétravail ou déplacements professionnels ne pouvant être
-            différés.
+            Déplacements entre le domicile et le lieu d&apos;exercice de l&apos;activité
+            professionnelle ou un établissement d&apos;enseignement ou de formation,
+            déplacements professionnels ne pouvant être différés, déplacements
+            pour un concours ou un examen.
           </OptionText>
         </Option>
         <Option>
           <Button
-            isActive={content.motive === 'courses'}
-            onClick={() => { handleClick('courses'); }}
+            isActive={content.motive === 'achats'}
+            onClick={() => { handleClick('achats'); }}
           />
           <OptionText>
             Déplacements pour effectuer des achats de fournitures nécessaires à
-            l&apos;activité professionnelle et des achats de première nécessité
-            dans des établissements dont les activités demeurent autorisées
-            (liste sur gouvernement.fr).
+            l&apos;activité professionnelle, des achats de première nécessité
+            dans des établissements dont les activités demeurent autorisées,
+            le retrait de commande et les livraisons à domicile.
           </OptionText>
         </Option>
         <Option>
@@ -189,9 +188,8 @@ const EditPanel = () => {
             onClick={() => { handleClick('sante'); }}
           />
           <OptionText>
-            Consultations et soins ne pouvant être assurés à distance et ne
-            pouvant être différés ; consultations et soins des patients atteints
-            d&apos;une affection de longue durée.
+            Consultations, examens et soins ne pouvant être assurés à distance
+            et l&apos;achat de médicaments.
           </OptionText>
         </Option>
         <Option>
@@ -201,13 +199,22 @@ const EditPanel = () => {
           />
           <OptionText>
             Déplacements pour motif familial impérieux, pour l&apos;assistance
-            aux personnes vulnérables ou la garde d&apos;enfants.
+            aux personnes vulnérables et précaires ou la garde d&apos;enfants.
           </OptionText>
         </Option>
         <Option>
           <Button
-            isActive={content.motive === 'sport'}
-            onClick={() => { handleClick('sport'); }}
+            isActive={content.motive === 'handicap'}
+            onClick={() => { handleClick('handicap'); }}
+          />
+          <OptionText>
+            Déplacement des personnes en situation de handicap et leur accompagnant.
+          </OptionText>
+        </Option>
+        <Option>
+          <Button
+            isActive={content.motive === 'sport_animaux'}
+            onClick={() => { handleClick('sport_animaux'); }}
           />
           <OptionText>
             Déplacements brefs, dans la limite d&apos;une heure quotidienne et
@@ -221,11 +228,12 @@ const EditPanel = () => {
         </Option>
         <Option>
           <Button
-            isActive={content.motive === 'judiciaire'}
-            onClick={() => { handleClick('judiciaire'); }}
+            isActive={content.motive === 'convocation'}
+            onClick={() => { handleClick('convocation'); }}
           />
           <OptionText>
-            Convocation judiciaire ou administrative.
+            Convocation judiciaire ou administrative et pour se rendre dans un
+            service public.
           </OptionText>
         </Option>
         <Option>
@@ -236,6 +244,16 @@ const EditPanel = () => {
           <OptionText>
             Participation à des missions d&apos;intérêt général sur demande de
             l&apos;autorité administrative.
+          </OptionText>
+        </Option>
+        <Option>
+          <Button
+            isActive={content.motive === 'enfants'}
+            onClick={() => { handleClick('enfants'); }}
+          />
+          <OptionText>
+            Déplacement pour chercher les enfants à l&apos;école et à
+            l&apos;occasion de leurs activités périscolaires.
           </OptionText>
         </Option>
       </Options>

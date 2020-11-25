@@ -49,7 +49,7 @@ const style = {
   },
   page: {
     fontFamily: 'OpenSans',
-    fontSize: 11,
+    fontSize: 10,
     lineHeight: 1.2,
     padding: 40,
   },
@@ -64,8 +64,8 @@ const style = {
     width: 447,
   },
   qrcode: {
-    height: 114,
-    width: 114,
+    height: 90,
+    width: 90,
   },
   qrcodeBig: {
     height: 330,
@@ -93,9 +93,9 @@ const Template = ({ content, qrcodeURL }) => (
     <Page size="A4" style={style.page}>
       <Text style={style.title}>ATTESTATION DE DÉPLACEMENT DÉROGATOIRE</Text>
       <Text style={style.paragraphCenter}>
-        En application de l&apos;article 3 du décret du 23 mars 2020 prescrivant
-        les mesures générales nécessaires pour faire face à l&apos;épidémie de
-        Covid19 dans le cadre de l&apos;état d&apos;urgence sanitaire
+        En application du décret n°2020-1310 du 29 octobre 2020 prescrivant les
+        mesures générales nécessaires pour faire face à l&apos;épidémie de
+        covid-19 dans le cadre de l&apos;état d&apos;urgence sanitaire
       </Text>
       <Text style={style.paragraph}>Je soussigné(e),</Text>
       <Text style={style.paragraph}>
@@ -107,10 +107,10 @@ const Template = ({ content, qrcodeURL }) => (
         Demeurant : {content.address} {content.postalCode} {content.city}
       </Text>
       <Text style={style.paragraph}>
-        Certifie que mon déplacement est lié au motif suivant (cocher la case)
-        autorisé par l&apos;article 3 du décret du 23 mars 2020 prescrivant les
+        certifie que mon déplacement est lié au motif suivant (cocher la case)
+        autorisé par le décret n°2020-1310 du 29 octobre 2020 prescrivant les
         mesures générales nécessaires pour faire face à l&apos;épidémie de
-        Covid19 dans le cadre de l&apos;état d&apos;urgence sanitaire
+        covid-19 dans le cadre de l&apos;état d&apos;urgence sanitaire
         <Text style={style.superscript}>1</Text>
         :
       </Text>
@@ -119,25 +119,24 @@ const Template = ({ content, qrcodeURL }) => (
           {content.motive === 'travail' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
-          Déplacements entre le domicile et le lieu d&apos;exercice de
-          l&apos;activité professionnelle, lorsqu&apos;ils sont indispensables
-          à l&apos;exercice d&apos;activités ne pouvant être organisées sous
-          forme de télétravail ou déplacements professionnels ne pouvant être
-          différés
+          Déplacements entre le domicile et le lieu d&apos;exercice de l&apos;activité
+          professionnelle ou un établissement d&apos;enseignement ou de formation,
+          déplacements professionnels ne pouvant être différés, déplacements
+          pour un concours ou un examen
           <Text style={style.superscript}>2</Text>
           .
         </Text>
       </View>
       <View style={style.option}>
         <View style={style.square}>
-          {content.motive === 'courses' && <Image src={CrossPNG} />}
+          {content.motive === 'achats' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
           Déplacements pour effectuer des achats de fournitures nécessaires à
-          l&apos;activité professionnelle et des achats de première nécessité
+          l&apos;activité professionnelle, des achats de première nécessité
           <Text style={style.superscript}>3</Text>
-          dans des établissements dont les activités demeurent autorisées
-          (liste sur gouvernement.fr).
+          dans des établissements dont les activités demeurent autorisées,
+          le retrait de commande et les livraisons à domicile.
         </Text>
       </View>
       <View style={style.option}>
@@ -145,9 +144,8 @@ const Template = ({ content, qrcodeURL }) => (
           {content.motive === 'sante' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
-          Consultations et soins ne pouvant être assurés à distance et ne
-          pouvant être différés ; consultations et soins des patients atteints
-          d&apos;une affection de longue durée.
+          Consultations, examens et soins ne pouvant être assurés à distance
+          et l&apos;achat de médicaments.
         </Text>
       </View>
       <View style={style.option}>
@@ -156,12 +154,20 @@ const Template = ({ content, qrcodeURL }) => (
         </View>
         <Text style={style.paragraphRight}>
           Déplacements pour motif familial impérieux, pour l&apos;assistance
-          aux personnes vulnérables ou la garde d&apos;enfants.
+          aux personnes vulnérables et précaires ou la garde d&apos;enfants.
         </Text>
       </View>
       <View style={style.option}>
         <View style={style.square}>
-          {content.motive === 'sport' && <Image src={CrossPNG} />}
+          {content.motive === 'handicap' && <Image src={CrossPNG} />}
+        </View>
+        <Text style={style.paragraphRight}>
+          Déplacement des personnes en situation de handicap et leur accompagnant.
+        </Text>
+      </View>
+      <View style={style.option}>
+        <View style={style.square}>
+          {content.motive === 'sport_animaux' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
           Déplacements brefs, dans la limite d&apos;une heure quotidienne et
@@ -175,13 +181,14 @@ const Template = ({ content, qrcodeURL }) => (
       </View>
       <View style={style.option}>
         <View style={style.square}>
-          {content.motive === 'judiciaire' && <Image src={CrossPNG} />}
+          {content.motive === 'convocation' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
-          Convocation judiciaire ou administrative.
+          Convocation judiciaire ou administrative et pour se rendre dans un
+          service public.
         </Text>
       </View>
-      <View style={[style.option, { marginBottom: 0 }]}>
+      <View style={style.option}>
         <View style={style.square}>
           {content.motive === 'missions' && <Image src={CrossPNG} />}
         </View>
@@ -190,18 +197,23 @@ const Template = ({ content, qrcodeURL }) => (
           l&apos;autorité administrative.
         </Text>
       </View>
+      <View style={[style.option, { marginBottom: 0 }]}>
+        <View style={style.square}>
+          {content.motive === 'enfants' && <Image src={CrossPNG} />}
+        </View>
+        <Text style={style.paragraphRight}>
+          Déplacement pour chercher les enfants à l&apos;école et à
+          l&apos;occasion de leurs activités périscolaires.
+        </Text>
+      </View>
       <View style={style.footer}>
         <View>
           <Text style={style.paragraph}>Fait à : {content.city}</Text>
           <Text>Le : {content.date} à {content.time}</Text>
-          <Text>(Date et heure de début de sortie)</Text>
+          <Text>(Date et heure de début de sortie à mentionner obligatoirement)</Text>
         </View>
         <Image src={qrcodeURL} style={style.qrcode} />
       </View>
-      <Text style={style.noteRight}>Date de création :</Text>
-      <Text style={[style.noteRight, { marginBottom: 12 }]}>
-        {now.format('DD/MM/YYYY')} à {now.format('HH:mm')}
-      </Text>
       <Text style={style.note}>
         <Text style={style.superscript}>1</Text>
         Les personnes souhaitant bénéficier de l&apos;une de ces exceptions
