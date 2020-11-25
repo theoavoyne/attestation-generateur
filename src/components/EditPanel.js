@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 
 import { editField, editMotive } from '../actions/content';
@@ -15,6 +15,15 @@ const Grid = styled.div`
   @media (max-width: 992px) {
     grid-template-columns: 1fr;
   }
+`;
+
+const LinkLikeButton = styled.button`
+  background: transparent;
+  border: none;
+  color: #4B4B4B;
+  cursor: pointer;
+  padding: none;
+  text-decoration: underline;
 `;
 
 const Option = styled.div`
@@ -36,6 +45,11 @@ const Paragraph = styled.p`
   line-height: 1.5;
   margin: 0 0 3rem 0;
   &:not(:last-child) { margin-bottom: 1rem; }
+`;
+
+const ParagraphBottom = styled.p`
+  line-height: 1.5;
+  margin: 0;
 `;
 
 const Button = styled.button.attrs(() => ({
@@ -92,6 +106,8 @@ const Wrapper = styled.div`
 
 const EditPanel = () => {
   const [content, dispatchContent] = useContext(ContentContext);
+
+  const [legal, setLegal] = useState(false);
 
   const handleChange = (e) => { dispatchContent(editField(e)); };
 
@@ -291,6 +307,22 @@ const EditPanel = () => {
           value={content.time}
         />
       </Grid>
+      {legal ? (
+        <ParagraphBottom>
+          Le présent site est édité et géré par la société Black Jelly,
+          immatriculée au RCS sous le numéro 890 152 556.
+          <div>Adresse : 4 rue Jules Lefebvre Ground, 75009 Paris.</div>
+          <div>Contact : <a href="mailto:hello@blackjelly.co">hello@blackjelly.co</a>.</div>
+          <div>Hébergeur : Firebase (1600 Amphitheatre Parkway, California, USA).</div>
+        </ParagraphBottom>
+      ) : (
+        <LinkLikeButton
+          onClick={() => setLegal(true)}
+          type="button"
+        >
+          Mentions légales
+        </LinkLikeButton>
+      )}
     </Wrapper>
   );
 };
