@@ -1,7 +1,7 @@
 import moment from 'moment-timezone';
 
 export default (content) => {
-  const now = moment().tz('Europe/Paris');
+  const now = moment().subtract(20, 'minutes').tz('Europe/Paris');
 
   return {
     ...content,
