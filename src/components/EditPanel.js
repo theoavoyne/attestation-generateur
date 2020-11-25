@@ -35,6 +35,7 @@ const Options = styled.div`
 const Paragraph = styled.p`
   line-height: 1.5;
   margin: 0 0 3rem 0;
+  &:not(:last-child) { margin-bottom: 1rem; }
 `;
 
 const Button = styled.button.attrs(() => ({
@@ -100,10 +101,28 @@ const EditPanel = () => {
     <Wrapper>
       <Tag>COVID-19</Tag>
       <Title>Générateur d&apos;attestation de déplacement dérogatoire</Title>
-      <Paragraph>
-        Les données saisies sont stockées exclusivement sur votre téléphone ou
-        votre ordinateur. <strong>Aucune information n&apos;est collectée.</strong>
-      </Paragraph>
+      <span>
+        <Paragraph>
+          Les données saisies sont stockées exclusivement sur votre téléphone ou
+          votre ordinateur.&nbsp;
+          <strong>Aucune information n&apos;est collectée</strong>
+          .
+        </Paragraph>
+        <Paragraph>
+          Contrairement au site du gouvernement,&nbsp;
+          <strong>aucun cookie n&apos;est utilisé</strong>
+          .&nbsp;
+          <a href="https://fr.wikihow.com/voir-les-cookies">
+            Comment voir les cookies ?
+          </a>
+        </Paragraph>
+        <Paragraph>
+          Le code du présent site est accessible&nbsp;
+          <strong>dans son intégralité</strong>
+          &nbsp;sur <a href="https://github.com/theoavoyne/attestation-generateur">GitHub</a>
+          .
+        </Paragraph>
+      </span>
       <Subtitle>Informations personnelles</Subtitle>
       <Grid>
         <LabelledInput
