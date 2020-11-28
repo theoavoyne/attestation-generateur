@@ -1,3 +1,4 @@
+import moment from 'moment-timezone';
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 
@@ -55,6 +56,10 @@ const Paragraph = styled.p`
   &:not(:last-child) { margin-bottom: 1rem; }
 `;
 
+const Paragraph2 = styled.p`
+  margin: 0 0 3rem 0;
+`;
+
 const ParagraphBottom = styled.p`
   line-height: 1.5;
   margin: 0;
@@ -98,7 +103,7 @@ const Tag = styled.span`
 `;
 
 const Title = styled.h1`
-  margin: 0 0 3rem 0;
+  margin: 0 0 1rem 0;
 `;
 
 const Wrapper = styled.div`
@@ -125,6 +130,9 @@ const EditPanel = () => {
     <Wrapper>
       <Tag>COVID-19</Tag>
       <Title>Générateur d&apos;attestation de déplacement dérogatoire</Title>
+      <Paragraph2>
+        À jour au {moment().tz('Europe/Paris').format('DD/MM/YYYY')}
+      </Paragraph2>
       <span>
         <Paragraph>
           Les données saisies sont stockées exclusivement sur votre téléphone ou
