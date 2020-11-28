@@ -129,14 +129,13 @@ const Template = ({ content, qrcodeURL }) => (
       </View>
       <View style={style.option}>
         <View style={style.square}>
-          {content.motive === 'achats' && <Image src={CrossPNG} />}
+          {content.motive === 'achats_culturel' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
-          Déplacements pour effectuer des achats de fournitures nécessaires à
-          l&apos;activité professionnelle, des achats de première nécessité
-          <Text style={style.superscript}>3</Text>
-          dans des établissements dont les activités demeurent autorisées,
-          le retrait de commande et les livraisons à domicile.
+          Déplacements pour se rendre dans un établissement culturel autorisé
+          ou un lieu de culte ; déplacements pour effectuer des achats de
+          biens, pour des services dont la fourniture est autorisée, pour les
+          retraits de commandes et les livraisons à domicile.
         </Text>
       </View>
       <View style={style.option}>
@@ -170,13 +169,14 @@ const Template = ({ content, qrcodeURL }) => (
           {content.motive === 'sport_animaux' && <Image src={CrossPNG} />}
         </View>
         <Text style={style.paragraphRight}>
-          Déplacements brefs, dans la limite d&apos;une heure quotidienne et
-          dans un rayon maximal d&apos;un kilomètre autour du domicile, liés
-          soit à l&apos;activité physique individuelle des personnes, à
-          l&apos;exclusion de toute pratique sportive collective et de toute
-          proximité avec d&apos;autres personnes, soit à la promenade avec les
-          seules personnes regroupées dans un même domicile, soit aux besoins
-          des animaux de compagnie.
+          Déplacements en plein air ou vers un lieu de plein air, sans
+          changement du lieu de résidence, dans la limite de trois heures
+          quotidiennes et dans un rayon maximal de vingt kilomètres autour
+          du domicile, liés soit à l&apos;activité physique ou aux loisirs
+          individuels, à l&apos;exclusion de toute pratique sportive
+          collective et de toute proximité avec d&apos;autres personnes,
+          soit à la promenade avec les seules personnes regroupées dans un
+          même domicile, soit aux besoins des animaux de compagnie ;
         </Text>
       </View>
       <View style={style.option}>
@@ -226,12 +226,6 @@ const Template = ({ content, qrcodeURL }) => (
         <Text style={style.superscript}>2</Text>
         A utiliser par les travailleurs non-salariés, lorsqu&apos;ils ne peuvent
         disposer d&apos;un justificatif de déplacement établi par leur employeur.
-      </Text>
-      <Text style={style.note}>
-        <Text style={style.superscript}>3</Text>
-        Y compris les acquisitions à titre gratuit (distribution de denrées
-        alimentaires…) et les déplacements liés à la perception de prestations
-        sociales et au retrait d&apos;espèces.
       </Text>
       <Image break src={qrcodeURL} style={style.qrcodeBig} />
     </Page>
