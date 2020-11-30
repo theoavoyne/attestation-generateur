@@ -26,6 +26,10 @@ const Image = styled.img`
   height: 3rem;
 `;
 
+const LinkRed = styled.a`
+  color: red;
+`;
+
 const LinkLikeButton = styled.button`
   background: transparent;
   border: none;
@@ -153,6 +157,11 @@ const EditPanel = () => {
           <strong>dans son intégralité</strong>
           &nbsp;sur <a href="https://github.com/theoavoyne/attestation-generateur">GitHub</a>
           .
+        </Paragraph>
+        <Paragraph >
+          Vous aimez ce site ?&nbsp;
+          <strong><LinkRed href="https://www.paypal.com/donate?hosted_button_id=D2AZCQ6QWNQKC">Faites un don</LinkRed></strong>
+          &nbsp;pour nous aider à couvrir les coûts de développement et d&apos;hébergement.
         </Paragraph>
       </span>
       <Subtitle>Informations personnelles</Subtitle>
